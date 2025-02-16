@@ -25,6 +25,8 @@ export default function Home() {
         'modular_blocks.article_banner.article',
         'modular_blocks.new_releases.page',
         'modular_blocks.new_releases.movies.page',
+        'modular_blocks.cta_banner.page',
+        'modular_blocks.product_banner.page'
       ]
     );
     console.log('homepage', entry[0][0]);
@@ -58,11 +60,14 @@ export default function Home() {
             {block.hasOwnProperty("new_releases") &&
               <NewReleases key={index} content={block.new_releases} />
             }
+            {block.hasOwnProperty("cta_banner") &&
+              <HalfSquares key={index} content={block.cta_banner} />
+            }
+            {block.hasOwnProperty("product_banner") &&
+              <ProductBanner key={index} content={block.product_banner} />
+            }
           </div>
         ))}
-
-        <HalfSquares />
-        <ProductBanner />
 
         <Footer />
 
