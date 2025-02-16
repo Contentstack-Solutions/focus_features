@@ -20,7 +20,7 @@ export default function ImageAndText({ content }){
                     <p className="font-spectral text-[18px]/[27px] md:text-[20px] mt-3 md:mt-2 lg:mt-10">{content?.details}</p>
 
                     <a 
-                        href="#" 
+                        href={content?.page?.length > 0 ? content.page[0].url : "#"}
                         className={"group border relative overflow-hidden hover:border-opacity-0 py-6 px-10 mt-4 md:mt-6 lg:mt-10 block max-w-min text-nowrap font-oswald text[16px] lg:text-[24px] uppercase transition-all duration-300 " + (content?.dark_theme ? "border-white" : "border-black")}
                     >
                         <p className={"relative z-20 " + (!content?.dark_theme ? "group-hover:text-white" : "")}>{content?.button_text}</p>

@@ -18,13 +18,15 @@ export default function Marquee({ content }) {
                             </div>
                         }
                         {image?.image?.url &&
-                            <div className={"flex " + (index % 2 === 0 ? "flex-col" : "flex-col-reverse")}>
+                            <a 
+                                href={image?.page?.length > 0 ? image.page[0].url : "#"}
+                                className={"flex " + (index % 2 === 0 ? "flex-col" : "flex-col-reverse")}>
                                 <img className="w-[456px] h-[257px] md:w-[616px] md:h-[347px] lg:w-[909px] lg:h-[511px] xl:w-[1203px] xl:h-[676px] object-cover" src={image?.image?.url} />
                                 <div className={"flex " + (index % 2 === 0 ? "" : "mt-[52px] lg:mt-[72px] xl:mt-[94px] mb-2")}>
                                     <p className="font-medium text-[40px]/[40px] lg:text-[56px]/[56px] xl:text-[80px]/[80px] tracking-tight max-w-[60%]">{image?.title}</p>
                                     <p className="whitespace-pre-wrap font-work font-medium text-[16px]/[16px]  ml-2 mt-0.5 lg:mt-2">{image?.details}</p>
                                 </div>
-                            </div>
+                            </a>
                         }
                     </li>
                 ))}
@@ -40,13 +42,15 @@ export default function Marquee({ content }) {
                             </div>
                         }
                         {image?.image?.url &&
-                            <div className={"flex " + (index % 2 === 0 ? "flex-col" : "flex-col-reverse")}>
+                            <a 
+                                href={image?.page?.length > 0 ? image.page[0].url : "#"}
+                                className={"flex " + (index % 2 === 0 ? "flex-col" : "flex-col-reverse")}>
                                 <img className="w-[456px] h-[257px] md:w-[616px] md:h-[347px] lg:w-[909px] lg:h-[511px] xl:w-[1203px] xl:h-[676px] object-cover" src={image?.image?.url} />
                                 <div className={"flex " + (index % 2 === 0 ? "" : "mt-[52px] lg:mt-[72px] xl:mt-[94px] mb-2")}>
                                     <p className="font-medium text-[40px]/[40px] lg:text-[56px]/[56px] xl:text-[80px]/[80px] tracking-tight max-w-[60%]">{image?.title}</p>
                                     <p className="whitespace-pre-wrap font-work font-medium text-[16px]/[16px]  ml-2 mt-0.5 lg:mt-2">{image?.details}</p>
                                 </div>
-                            </div>
+                            </a>
                         }
                     </li>
                 ))}

@@ -19,6 +19,12 @@ export default function Home() {
       "homepage",
       "en-us",
       [
+        'modular_blocks.marquee.images.page',
+        'modular_blocks.image_and_text_banner.page',
+        'modular_blocks.article_banner.page',
+        'modular_blocks.article_banner.article',
+        'modular_blocks.new_releases.page',
+        'modular_blocks.new_releases.movies.page',
       ]
     );
     console.log('homepage', entry[0][0]);
@@ -46,11 +52,15 @@ export default function Home() {
             {block.hasOwnProperty("image_and_text_banner") &&
               <ImageAndText key={index} content={block.image_and_text_banner} />
             }
+            {block.hasOwnProperty("article_banner") &&
+              <Articles key={index} content={block.article_banner} />
+            }
+            {block.hasOwnProperty("new_releases") &&
+              <NewReleases key={index} content={block.new_releases} />
+            }
           </div>
         ))}
 
-        <Articles />
-        <NewReleases />
         <HalfSquares />
         <ProductBanner />
 
