@@ -1,7 +1,7 @@
 
 export default function HalfSquares(){
     return(
-        <div className="relative max-w-[720px] md:max-w-[960px] lg:max-w-[1400px] xl:max-w-8xl mx-auto px-2 flex mb-24 md:mb-40">
+        <div className="relative max-w-[720px] md:max-w-[960px] lg:max-w-[1400px] xl:max-w-8xl mx-auto px-2 flex mb-64 md:mb-96 ">
             <div className="w-1/2 flex lg:items-center pl-[60px] ">
                 <div className="w-full lg:pl-[36px] xl:pl-[80px] text-black ">
                     <p className="font-work font-semibold text-[16px] uppercase">Focus Insider</p>

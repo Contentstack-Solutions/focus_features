@@ -7,6 +7,8 @@ import ImageAndText from "@/components/imageAndText";
 import Articles from "@/components/articles";
 import NewReleases from "@/components/newReleases";
 import HalfSquares from "@/components/halfSquares";
+import ProductBanner from "@/components/productBanner";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const [entry, setEntry] = useState({});
@@ -48,8 +50,10 @@ export default function Home() {
         <Articles />
         <NewReleases />
         <HalfSquares />
+        <ProductBanner />
 
-        <div className="h-[400px]"></div>
+        <Footer />
+
       </div>
     </div>
   )
