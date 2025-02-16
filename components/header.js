@@ -11,7 +11,7 @@ export default function Header() {
         const entry = await Stack.getElementByTypeWtihRefs("header", "en-us", [
             'menu.page',
         ]);
-        console.log("header", entry[0][0]);
+        //console.log("header", entry[0][0]);
         setEntry(entry[0][0]);
         setIsLoading(false);
     };
