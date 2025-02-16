@@ -43,10 +43,12 @@ export default function Home() {
             {block.hasOwnProperty("marquee") &&
               <Marquee key={index} content={block.marquee} />
             }
+            {block.hasOwnProperty("image_and_text_banner") &&
+              <ImageAndText key={index} content={block.image_and_text_banner} />
+            }
           </div>
         ))}
 
-        <ImageAndText />
         <Articles />
         <NewReleases />
         <HalfSquares />
