@@ -11,7 +11,7 @@ export default function Footer() {
             'columns.items.page',
             'social.group.page'
         ]);
-        console.log("header", entry[0][0]);
+        //console.log("footer", entry[0][0]);
         setEntry(entry[0][0]);
         setIsLoading(false);
     };

@@ -11,7 +11,7 @@ export default function Header() {
         const entry = await Stack.getElementByTypeWtihRefs("header", "en-us", [
             'menu.page',
         ]);
-        //console.log("header", entry[0][0]);
+        console.log("header", entry[0][0]);
         setEntry(entry[0][0]);
         setIsLoading(false);
     };
@@ -30,32 +30,42 @@ export default function Header() {
                 >
                     <Image
                         className="w-[112px] h-[40px] xl:w-[154px] xl:h-[55px]"
-                        src="https://images.contentstack.io/v3/assets/blt942b6d9738065ec9/blt8607e36bb2c6ecf8/67b09a03a91adf2938673348/logo.png"
+                        src={entry?.logo?.url}
                         width={154}
                         height={55}
                         alt=""
+                        {...entry?.logo?.$?.url}
                     />
                 </Link>
                 
-
-                {entry?.menu?.map((item, index) => (
-                    <Link
-                        key={index}
-                        href={item?.page?.length > 0 ? item.page[0].url : "#"}
-                        className="header-link uppercase flex items-center"
-                    >
-                        {item.text}
-                        {item.icon &&
-                            <Image
-                                className="ml-5 w-[24px] h-[24px]"
-                                src={item.icon?.url}
-                                height={24}
-                                width={24}
-                                alt=""
-                            />
-                        }
-                    </Link>
-                ))}
+                {entry?.menu?.length === 0 &&
+                    <div className="h-[100px] visual-builder__empty-block-parent" {...entry?.$?.menu} >
+                    </div>
+                }
+                <div className="flex w-full justify-between pl-10  md:pl-32" {...entry?.$?.menu}>
+                    {entry?.menu?.map((item, index) => (
+                        <div className="px-6" key={index} {...cslp(entry, 'menu__', index)} >
+                            <Link
+                                key={index}
+                                href={item?.page?.length > 0 ? item.page[0].url : "#"}
+                                className="header-link uppercase flex items-center min-w-10 z-40"
+                                {...item.$?.text}
+                            >
+                                {item.text}
+                                {item.icon &&
+                                    <Image
+                                        className="ml-5 w-[24px] h-[24px]"
+                                        src={item.icon?.url}
+                                        height={24}
+                                        width={24}
+                                        alt=""
+                                        {...item?.$?.icon}
+                                    />
+                                }
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

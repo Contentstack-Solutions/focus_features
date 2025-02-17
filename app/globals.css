@@ -11,3 +11,7 @@
     animation-play-state: paused;
   }
 }
+
+nextjs-portal {
+  display: none;
+}
