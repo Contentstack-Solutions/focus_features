@@ -26,16 +26,27 @@ export default function Footer() {
     return (
         <div className="border border-t-black">
             <div className="max-w-[720px] md:max-w-[960px] lg:max-w-[1400px] xl:max-w-8xl mx-auto px-2 pt-24 pb-48 flex justify-between">
-                <div className="font-oswald text-[16px] font-light flex gap-16">
+                <div className="font-oswald text-[16px] font-light flex gap-16" {...entry?.$?.columns}>
+                    {entry?.columns?.length === 0 &&
+                        <div className="h-[300px] w-[500px] visual-builder__empty-block-parent" {...entry?.$?.columns} >
+                        </div>
+                    }
                     {entry?.columns?.map((column, colIndex) => (
-                        <div key={colIndex} className="flex flex-col gap-y-6 uppercase">
+                        <div key={colIndex} className="flex flex-col gap-y-6 uppercase" {...cslp(entry, 'columns__', colIndex)}>
+                            {column.items?.length === 0 &&
+                                <div className="h-[300px] max-w-[300px] visual-builder__empty-block-parent" {...column?.$?.items} >
+                                </div>
+                            }
                             {column.items?.map((item, index) => (
-                                <a 
-                                    href={item?.page?.length > 0 ? item.page[0].url : "#"}
-                                    key={index}
-                                >
-                                    {item.text}
-                                </a>
+                                <div key={index} >
+                                    <a 
+                                        href={item?.page?.length > 0 ? item.page[0].url : "#"}
+                                        key={index}
+                                        {...item?.$?.text}
+                                    >
+                                        {item.text}
+                                    </a>
+                                </div>
                             ))}
                         </div>
                     ))}
